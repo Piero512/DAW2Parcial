@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Assigments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th>Task</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assigments.each do |assigment| %>
+      <tr>
+        <td><%= assigment.member %></td>
+        <td><%= assigment.task %></td>
+        <td><%= link_to 'Show', assigment %></td>
+        <td><%= link_to 'Edit', edit_assigment_path(assigment) %></td>
+        <td><%= link_to 'Destroy', assigment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Assigment', new_assigment_path %>

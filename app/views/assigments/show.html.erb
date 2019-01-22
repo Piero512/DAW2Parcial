@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @assigment.member %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @assigment.task %>
+</p>
+
+<%= link_to 'Edit', edit_assigment_path(@assigment) %> |
+<%= link_to 'Back', assigments_path %>
