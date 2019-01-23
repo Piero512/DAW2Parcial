@@ -107,7 +107,7 @@ reserva_aula = Task.create(
 
 Assignment.create(
   member_id: vivi.id,
-  task_id: bocaditos.id
+  task_id: bocaditos.id,
 )
 
 Assignment.create(
