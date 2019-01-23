@@ -54,19 +54,19 @@ oswaldo = Member.create(
 post1 = Post.create(
   title: 'Prepárate para el Datajam 2018',
   content: 'Datajam 2018 es el concurso de ciencia de datos más innovador en ecuador!',
-  member_id: piero
+  member_id: piero.id
 )
 
 post2 = Post.create(
   title: 'Ganadores del Datajam 2018',
   content: 'Los ganadores del datajam 2018 fueron los siguientes!',
-  member_id: vivi
+  member_id: vivi.id
 )
 
 post3 = Post.create(
   title: 'Anunciado auspiciante para el Datajam 2019!',
   content: 'El auspiciante del datajam 2019 es una empresa de apuestas en línea',
-  member_id: oswaldo
+  member_id: oswaldo.id
 )
 
 # Add comments to post!
@@ -76,8 +76,8 @@ Comment.create(
   content: 'Felicitaciones por conseguir '\
 'un nuevo auspiciante para el evento! Son lo máximo!',
   author: vivi.name,
-  member_id: vivi,
-  post_id: post3
+  member_id: vivi.id,
+  post_id: post3.id
 )
 
 
@@ -85,37 +85,39 @@ Comment.create(
 
 bocaditos = Task.create(
   name: 'Reunión con auspiciante para bocaditos',
-  desc: 'Puntos a discutir: \n '\
-    '- ¿Cómo será la marca del auspiciante mostrada en el evento?\n' \
-    '- ¿Qué productos nos van a proporcionar para el apoyo? \n'\
+  desc: 'Puntos a discutir: <br> '\
+    '- ¿Cómo será la marca del auspiciante mostrada en el evento? <br>' \
+    '- ¿Qué productos nos van a proporcionar para el apoyo? <br>'\
     '- Etc...',
   deadline: DateTime.parse('2018-09-11 13:30:00'),
   completed: false,
-  event_id: event2
+  event_id: event2.id
 )
 
 reserva_aula = Task.create(
   name: 'Reservar la sala XYZ',
-  desc: 'Se necesita que alguien reserve la sala XYZ para capacitar a los estudiantes'\
+  desc: 'Se necesita que alguien reserve la sala XYZ para capacitar a los estudiantes '\
   'en el uso de las herramientas de prototipado',
   deadline: DateTime.parse('2018-09-13 00:00:00'),
   completed: false,
-  event_id: event1
+  event_id: event1.id
 )
 
 # Add task asignees
 
-Assigment.create(
-  member_id: vivi,
-  task_id: bocaditos
+Assignment.create(
+  member_id: vivi.id,
+  task_id: bocaditos.id
 )
 
 Assignment.create(
-  member_id: piero,
-  task_id: bocaditos
+  member_id: piero.id,
+  task_id: bocaditos.id
 )
 
-Assigment.create(
-  member_id: oswaldo,
-  task_id: reserva_aula
+Assignment.create(
+  member_id: oswaldo.id,
+  task_id: reserva_aula.id
 )
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

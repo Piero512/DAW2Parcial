@@ -2,47 +2,47 @@ require 'test_helper'
 
 class AssigmentsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @assigment = assigments(:one)
+    @assignment = assigments(:one)
   end
 
   test "should get index" do
-    get assigments_url
+    get assignments_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_assigment_url
+    get new_assignment_url
     assert_response :success
   end
 
   test "should create assigment" do
     assert_difference('Assigment.count') do
-      post assigments_url, params: { assigment: { member_id: @assigment.member_id, task_id: @assigment.task_id } }
+      post assignments_url, params: {assignment: {member_id: @assignment.member_id, task_id: @assignment.task_id } }
     end
 
-    assert_redirected_to assigment_url(Assigment.last)
+    assert_redirected_to assignment_url(Assignment.last)
   end
 
   test "should show assigment" do
-    get assigment_url(@assigment)
+    get assignment_url(@assignment)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_assigment_url(@assigment)
+    get edit_assignment_url(@assignment)
     assert_response :success
   end
 
   test "should update assigment" do
-    patch assigment_url(@assigment), params: { assigment: { member_id: @assigment.member_id, task_id: @assigment.task_id } }
-    assert_redirected_to assigment_url(@assigment)
+    patch assignment_url(@assignment), params: {assignment: {member_id: @assignment.member_id, task_id: @assignment.task_id } }
+    assert_redirected_to assignment_url(@assignment)
   end
 
   test "should destroy assigment" do
     assert_difference('Assigment.count', -1) do
-      delete assigment_url(@assigment)
+      delete assignment_url(@assignment)
     end
 
-    assert_redirected_to assigments_url
+    assert_redirected_to assignments_url
   end
 end

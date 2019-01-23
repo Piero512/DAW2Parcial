@@ -12,12 +12,12 @@
   </thead>
 
   <tbody>
-    <% @assigments.each do |assigment| %>
+    <% @assignments.each do |assigment| %>
       <tr>
         <td><%= assigment.member %></td>
         <td><%= assigment.task %></td>
         <td><%= link_to 'Show', assigment %></td>
-        <td><%= link_to 'Edit', edit_assigment_path(assigment) %></td>
+        <td><%= link_to 'Edit', edit_assignment_path(assigment) %></td>
         <td><%= link_to 'Destroy', assigment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Assigment', new_assigment_path %>
+<%= link_to 'New Assigment', new_assignment_path %>

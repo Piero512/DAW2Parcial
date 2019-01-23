@@ -2,20 +2,20 @@ require "application_system_test_case"
 
 class AssigmentsTest < ApplicationSystemTestCase
   setup do
-    @assigment = assigments(:one)
+    @assignment = assigments(:one)
   end
 
   test "visiting the index" do
-    visit assigments_url
+    visit assignments_url
     assert_selector "h1", text: "Assigments"
   end
 
   test "creating a Assigment" do
-    visit assigments_url
+    visit assignments_url
     click_on "New Assigment"
 
-    fill_in "Member", with: @assigment.member_id
-    fill_in "Task", with: @assigment.task_id
+    fill_in "Member", with: @assignment.member_id
+    fill_in "Task", with: @assignment.task_id
     click_on "Create Assigment"
 
     assert_text "Assigment was successfully created"
@@ -23,11 +23,11 @@ class AssigmentsTest < ApplicationSystemTestCase
   end
 
   test "updating a Assigment" do
-    visit assigments_url
+    visit assignments_url
     click_on "Edit", match: :first
 
-    fill_in "Member", with: @assigment.member_id
-    fill_in "Task", with: @assigment.task_id
+    fill_in "Member", with: @assignment.member_id
+    fill_in "Task", with: @assignment.task_id
     click_on "Update Assigment"
 
     assert_text "Assigment was successfully updated"
@@ -35,7 +35,7 @@ class AssigmentsTest < ApplicationSystemTestCase
   end
 
   test "destroying a Assigment" do
-    visit assigments_url
+    visit assignments_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
