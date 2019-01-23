@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_22_214314) do
+ActiveRecord::Schema.define(version: 2019_01_23_151158) do
 
   create_table "assigments", force: :cascade do |t|
     t.integer "member_id"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2019_01_22_214314) do
     t.integer "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "completed"
     t.index ["event_id"], name: "index_tasks_on_event_id"
   end
 
