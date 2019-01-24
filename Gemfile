@@ -64,5 +64,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Include ActiveAdmin to move CRUD to Admin pages.
 
 gem 'activeadmin'
-
+# Devise for Auth
 gem 'devise'
+
+# Bootstrap :)
+gem 'bootstrap'
+
+gem 'jquery-rails'
+
