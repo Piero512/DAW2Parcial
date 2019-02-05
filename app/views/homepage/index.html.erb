@@ -6,6 +6,8 @@
   <meta charset="utf-8">
   <meta name="description" content="Página Web del club de organización de eventos SuitCase">
   <meta name="keywords" content="evento, SuitCase, ESPOL, turismo, comida, transporte, personal, fiesta">
+  <%= stylesheet_link_tag params[:controller] %>
+  <%= javascript_include_tag params[:controller] %>
 </head>
 
 <body>
@@ -30,10 +32,10 @@
   </div>
 </header>
 <div class="topnav" id="myTopnav">
-  <a href="#"> Suitcase</a>
+  <a href="#">Suitcase</a>
   <a href="quienes_somos.html">¿Quienes somos?</a>
   <a href="que_hacemos.html">¿Que hacemos?</a>
-  <a href="prox_eventos.html">Proximos Eventos</a>
+  <a href="prox_eventos.html">Próximos Eventos</a>
   <a href="portafolio.html">Portafolio</a>
   <a href="contacto.html">Contacto</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -43,47 +45,36 @@
 <div>
   <br>
 </div>
-<h2 class="w3-center">SuitCase 2018</h2>
-<div class="w3-content w3-display-container">
-  <%= image_tag 'i3week.jpg', class: 'mySlides' %>
-  <%= image_tag 'Djam.jpg', class: 'mySlides' %>
-  <%= image_tag 'suitcase-members.jpg', class: 'mySlides' %>
-  <%= image_tag 'feria.jpg', class: 'mySlides' %>
-  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+<h2 class="text-center">SuitCase 2018</h2>
+<div class="container-fluid">
+  <div id="carouselExampleIndicators" class="carousel slide row" data-interval='5000' data-ride="carousel">
+    <ol class="carousel-indicators">
+      <% (0..3).each do |item| %>
+        <li data-target="#carouselExampleIndicators" data-slide-to="<%=item %>" ></li>
+      <% end %>
+    </ol>
+    <div class="carousel-inner">
+      <% %w(Djam.jpg i3week.jpg suitcase-members.jpg feria.jpg).each do |image| %>
+        <div class="carousel-item">
+          <%= image_tag image, class: 'd-block w-100' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <aside class="aside col-3" >
+    <% @events.each do |event| %>
+      <div class="evento">
+        <h2><%= event.name %></h2>
+        <hr>
+        <p><%= sanitize event.desc %></p>
+      </div>
+    <% end %>
+  </aside>
 </div>
-<script>
-    function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav";
-        }
-    }
 
-    var slideIndex = 1;
-    showDivs(slideIndex);
 
-    function plusDivs(n) {
-        showDivs(slideIndex += n);
-    }
 
-    function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        if (n > x.length) {
-            slideIndex = 1
-        }
-        if (n < 1) {
-            slideIndex = x.length
-        }
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        x[slideIndex - 1].style.display = "block";
-    }
-</script>
+
 </body>
 </html>
 
